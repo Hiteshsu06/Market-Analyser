@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// utils
+import { lazy, Suspense } from "react";
+
+// styles
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'remixicon/fonts/remixicon.css';
+import "./style.css";
+
+// components
+import { Route, Routes } from "react-router-dom";
+
+// pages
+const Dashboard = lazy(() => import("@pages/Dashboard"));
+const LoadingScreen = lazy(() => import("@pages/LoadingScreen"));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Suspense fallback={<LoadingScreen />}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 
