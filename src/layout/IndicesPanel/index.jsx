@@ -1,95 +1,11 @@
 import Coursel from "@components/Coursel";
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-let dummyData = {
-  domesticIndexes: [
-    {
-      name: 'Nifty 50',
-      currentPrice: '23,501.10',
-      prevDayChange: '-65.90',
-      prevDayChangePercent: '-0.28%'
-    },
-    {
-      name: 'Nifty Metal',
-      currentPrice: '9,990.90',
-      prevDayChange: '+39.85',
-      prevDayChangePercent: '0.40%'
-    },
-    {
-      name: 'Nifty Bank',
-      currentPrice: '51,661.45',
-      prevDayChange: '-121.80',
-      prevDayChangePercent: '0.24%'
-    },
-    {
-      name: 'Nifty 50',
-      currentPrice: '23,501.10',
-      prevDayChange: '-65.90',
-      prevDayChangePercent: '-0.28%'
-    },
-    {
-      name: 'Nifty Metal',
-      currentPrice: '9,990.90',
-      prevDayChange: '+39.85',
-      prevDayChangePercent: '0.40%'
-    },
-    {
-      name: 'Nifty Bank',
-      currentPrice: '51,661.45',
-      prevDayChange: '-121.80',
-      prevDayChangePercent: '0.24%'
-    }
-  ],
-  internationalIndexes: {
-    usaIndexes: [{
-      name: 'Dow Jones',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    },
-    {
-      name: 'Nasdaq',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    }],
-    asiaIndexes: [{
-      name: 'Dow Jones',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    },
-    {
-      name: 'Nasdaq',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    }],
-    europeIndexes: [{
-      name: 'Dow Jones',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    },
-    {
-      name: 'Nasdaq',
-      currentPrice: '23,450.60',
-      prevDayChange: '116',
-      prevDayChangePercent: '0.49%',
-      country: 'Ameri'
-    }]
-  }
-}
+import dummyData from "@assets/mockdata/indicesData";
 
 const IndicesPanel = () => {
   const [time, setTime] = useState(new Date());
   const [domesticData, setDomesticData] = useState([]);
+  const [foreignData, setForeignData] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -114,7 +30,8 @@ const IndicesPanel = () => {
   };
   
   useEffect(()=>{
-    setDomesticData(dummyData?.domesticIndexes)
+    setDomesticData(dummyData?.domesticIndexes);
+    setForeignData(dummyData?.internationalIndexes);
   },[])
 
   return (
@@ -130,8 +47,20 @@ const IndicesPanel = () => {
         </div>
         <div className='row mt-4'>
             <div className='col-12'>
-                <span className="ms-1 mb-1"><h4>Foreign Indices</h4></span>
-                <Coursel data={domesticData} cardsPerCoursel={5}/>
+                <span className="ms-1 mb-1"><h4>USA Indices</h4></span>
+                <Coursel data={foreignData} cardsPerCoursel={5}/>
+            </div>
+        </div>
+        <div className='row mt-4'>
+            <div className='col-12'>
+                <span className="ms-1 mb-1"><h4>Asian Indices</h4></span>
+                <Coursel data={foreignData} cardsPerCoursel={5}/>
+            </div>
+        </div>
+        <div className='row mt-4'>
+            <div className='col-12'>
+                <span className="ms-1 mb-1"><h4>European Indices</h4></span>
+                <Coursel data={foreignData} cardsPerCoursel={5}/>
             </div>
         </div>
     </div>

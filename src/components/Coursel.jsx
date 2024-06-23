@@ -19,7 +19,7 @@ function groupObjects(array, groupSize) {
 
 const Coursel = ({data, cardsPerCoursel}) => {
   return (
-    <Carousel interval={3000} pause={false} indicators={false}>
+    <Carousel interval={3000} pause={false} indicators={false} controls={false}>
     {groupObjects(data, cardsPerCoursel)?.map((item)=>{
         return(
             <Carousel.Item>
