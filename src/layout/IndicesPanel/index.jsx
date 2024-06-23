@@ -125,7 +125,13 @@ const IndicesPanel = () => {
                 <div className="fs-1 fw-bolder text-center">{formatTime(time)}</div>
             </div>
             <div className='col-8'>
-                <Coursel data={domesticData}/>
+                <Coursel data={domesticData} cardsPerCoursel={3}/>
+            </div>
+        </div>
+        <div className='row mt-4'>
+            <div className='col-12'>
+                <span className="ms-1 mb-1"><h4>Foreign Indices</h4></span>
+                <Coursel data={domesticData} cardsPerCoursel={5}/>
             </div>
         </div>
     </div>

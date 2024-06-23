@@ -17,10 +17,10 @@ function groupObjects(array, groupSize) {
     }, []);
 }
 
-const Coursel = ({data}) => {
+const Coursel = ({data, cardsPerCoursel}) => {
   return (
-    <Carousel  interval={3000} pause={false} indicators={false}>
-    {groupObjects(data, 3)?.map((item)=>{
+    <Carousel interval={3000} pause={false} indicators={false}>
+    {groupObjects(data, cardsPerCoursel)?.map((item)=>{
         return(
             <Carousel.Item>
                 <div className="d-flex justify-content-around">
