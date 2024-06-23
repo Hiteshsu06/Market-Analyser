@@ -1,3 +1,4 @@
+// assets
 import Logo from '@assets/images/logo.png';
 import Search from '@assets/svgs/search.svg';
 import Doubt from '@assets/svgs/doubt.svg';

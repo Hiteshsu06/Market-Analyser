@@ -99,6 +99,6 @@ const dummyData = {
         prevDayChangePercent: '-0.28%'
       },
     ]
-}
+};
 
 export default dummyData;
