@@ -1,6 +1,8 @@
 const LoadingScreen = () => {
   return (
-    <div>LoadingScreen</div>
+    <div class="clock">
+        <span></span>
+    </div>
   )
 }
 

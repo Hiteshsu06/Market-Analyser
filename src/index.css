@@ -32,3 +32,59 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* darker color when hovered */
 }
+
+.clock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 15px solid #8a5fff;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 40%;
+  height: 6px;
+  background: #262626;
+  top: calc(50% - 3px);
+  border-radius: 3px;
+  animation: animate 4s linear infinite;
+  transform-origin: left;
+}
+
+@keyframes animate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 30%;
+  top: calc(50% - 3px);
+  border-radius: 3px;
+  height: 6px;
+  background: #262626;
+  animation: anime 60s linear infinite;
+  transform-origin: left;
+}
+
+@keyframes anime {
+  0% {
+      transform: rotate(-90deg);
+  }
+  100% {
+      transform: rotate(270deg);
+  }
+}
