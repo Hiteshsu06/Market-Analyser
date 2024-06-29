@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <div className='narbar-container'>
         <div className='narbar-left-container'>
-            <div><img src={Logo} alt="logo" /></div>
+            <div><img src={Logo} alt="logo" width={30} height={30}/></div>
             <div className='navbar-title cursor-pointer' onClick={navigateToUrl} >Market Analyser</div>
         </div>
         <div className='navbar-right-container'>
